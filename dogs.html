@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love Jigsaw Puzzles</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="icon" type="image/x-icon" href="https://em-content.zobj.net/thumbs/120/apple/354/smiling-face-with-sunglasses_1f60e.png">
+</head>
+<body>
+    <h1>Things That Are Cool!</h1>
+    <h2>Dogs</h2>
+
+    <nav>
+        <p>Navigation</p>
+        <ul>
+            <a href="./index.html"><li>Jigsaws are Cool</li></a>
+            <a href="./dogs.html"><li>Dogs are Also Cool</li></a>
+    </nav>
+
+    <p>Do you like dogs? If so, why not try out this get a dog pic button - new random dog every time!</p>
+
+    <div id="dog">
+        <button onclick=getDogPic()>Get a dog pic!</button>
+    </div>
+    
+</body>
+</html>
+
+<script>
+    let img = document.createElement("img");
+
+    function getDogPic(){
+        fetch("https://dog.ceo/api/breeds/image/random")
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data.message)
+            img.src=data.message;
+            document.getElementById("dog").appendChild(img);
+        });
+
+
+    }
+
+</script>
